@@ -32,7 +32,7 @@ public class listaDoble {
 
             Nodo temporal = inicio;
             Nodo temp = inicio;
-            while (temporal.getSiguiente() != null) {
+            while (temporal.getSiguiente() != inicio) {
                 temporal = temporal.getSiguiente();
             }
             temporal.setSiguiente(nuevo);
@@ -78,11 +78,13 @@ public class listaDoble {
     public void mayores() {
         Nodo temp = inicio;
         String nombre = "";
+        int n=0;
         int contador = 0;
         if (inicio != null) {
-            while (temp != null) {
+            while (contador2!=n) {
+                n++;
                 if (temp.getAge() >= 18) {
-                    nombre = nombre + " " + temp.getName() + " su posicion es " + contador + "\n";
+                    nombre = nombre + " " + temp.getName() + " su posicion es " + (contador+1) + "\n";
                 }
                 temp = temp.getSiguiente();
                 contador += 1;
@@ -114,6 +116,7 @@ public class listaDoble {
                 Nodo enlaceTemporal = anterior.getSiguiente();
                 while (enlaceTemporal.getAge() < 18) {
                     enlaceTemporal = enlaceTemporal.getSiguiente();
+                    contador2--;
                 }
                 inicio = enlaceTemporal;
                 enlaceTemporal.setAtras(null);
@@ -123,6 +126,7 @@ public class listaDoble {
                 Nodo enlaceTemporal = anterior.getSiguiente();
                 while (enlaceTemporal != null && enlaceTemporal.getAge() < 18) {
                     enlaceTemporal = enlaceTemporal.getSiguiente();
+                      contador2--;
                 }
                 anterior.getAtras().setSiguiente(enlaceTemporal);
 
@@ -144,10 +148,11 @@ public class listaDoble {
 
     public void listar() {
         Nodo nodo = inicio;
+        int n=0;
         String lista = "";
-        while (nodo != null) {
-
-            lista += " nombre: " + nodo.getName() + " y edad: " + nodo.getAge()+"/n";
+        while (contador2!=n) {
+            n++;
+            lista += " nombre: " + nodo.getName() + " y edad: " + nodo.getAge()+"\n";
             nodo = nodo.getSiguiente();
         }
         JOptionPane.showMessageDialog(null, lista);
