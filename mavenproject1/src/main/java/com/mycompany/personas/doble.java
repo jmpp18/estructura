@@ -38,6 +38,7 @@ public class doble extends javax.swing.JFrame {
         buscar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
         listar = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +79,13 @@ public class doble extends javax.swing.JFrame {
             }
         });
 
+        delete.setText("eliminar por indice");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,7 +112,9 @@ public class doble extends javax.swing.JFrame {
                         .addComponent(posicion)
                         .addGap(106, 106, 106))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(173, 173, 173)
+                .addGap(58, 58, 58)
+                .addComponent(delete)
+                .addGap(40, 40, 40)
                 .addComponent(listar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -120,10 +130,11 @@ public class doble extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buscar)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(eliminar)))
+                    .addComponent(eliminar))
                 .addGap(46, 46, 46)
-                .addComponent(listar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(listar)
+                    .addComponent(delete))
                 .addContainerGap(82, Short.MAX_VALUE))
         );
 
@@ -149,6 +160,10 @@ public class doble extends javax.swing.JFrame {
     private void listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarActionPerformed
         objLista.listar();
     }//GEN-LAST:event_listarActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+       objLista.eliminarIndice(Integer.parseInt(JOptionPane.showInputDialog("de el indice")));
+    }//GEN-LAST:event_deleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,6 +203,7 @@ public class doble extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregar;
     private javax.swing.JButton buscar;
+    private javax.swing.JButton delete;
     private javax.swing.JButton eliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton listar;
